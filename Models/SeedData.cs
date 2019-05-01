@@ -51,6 +51,13 @@ namespace AdminIB.Models
                         Status = "Request"
                     }
                 );
+                if (context.Event.Any())
+                {
+                    return;
+                }
+                context.Event.Add(
+                    null
+                );
                 context.SaveChanges();
             }
 
