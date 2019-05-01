@@ -1,0 +1,77 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/AdminIB.csproj": {}
+  },
+  "projects": {
+    "/home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/AdminIB.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/AdminIB.csproj",
+        "projectName": "AdminIB",
+        "projectPath": "/home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/AdminIB.csproj",
+        "packagesPath": "/home/roby/.nuget/packages/",
+        "outputPath": "/home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/roby/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SQLite": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.2.3, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

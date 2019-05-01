@@ -1,0 +1,81 @@
+@model IEnumerable<AdminIB.Models.Request>
+
+@{
+    ViewData["Title"] = "Index";
+    var no=0;
+}
+
+<h1>Daftar IB</h1>
+<form asp-controller="IB" asp-action="Index" method="get">
+    <p>
+        Title: <input type="text" name="SearchString">
+        <input type="submit" value="Cari" />
+    </p>no brainer
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                NO
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NamaMahasiswa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NIMMahasiswa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReturnDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    {no++;}
+        <tr>
+            <td>
+                @(no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaMahasiswa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NIMMahasiswa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReturnDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <!-- <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | -->
+                <a asp-action="Accept" asp-route-id="@item.Id">Setujui</a> |
+                <a asp-action="Reject" asp-route-id="@item.Id">Tolak</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
