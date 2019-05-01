@@ -1,18 +1,26 @@
 @model IEnumerable<AdminIB.Models.Request>
 
 @{
-    ViewData["Title"] = "Index";
-    var no=0;
+    ViewData["Title"] = "Data IB";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Daftar IB</h1>
-<form asp-controller="IB" asp-action="Index" method="get">
-    <p>
-        Title: <input type="text" name="SearchString">
-        <input type="submit" value="Cari" />
-    </p>no brainer
-</form>
-<table class="table">
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        @ViewData["Title"]
+    </h1>
+</section>
+<!-- Main content -->
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Admins Table</h3>
+                </div>
+                <div class="box-body">
+<table id="example2" class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>
@@ -78,4 +86,21 @@
         </tr>
 }
     </tbody>
-</table>
+    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>$(function () {
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })</script>
+    
