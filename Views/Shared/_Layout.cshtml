@@ -14,7 +14,7 @@
       <!-- Theme style -->
       <link rel="stylesheet" href="~/dist/css/AdminLTE.min.css">
       <link rel="stylesheet" href="~/dist/css/skins/skin-blue.min.css">
-      <!-- Google Font -->
+    
       <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
@@ -27,7 +27,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>AP</b>T</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>AdminPanel</b>Tutorial</span>
+          <span class="logo-lg"><b>AdminPanel</b>IB</span>
         </a>
         <!-- Header Navbar -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -43,14 +43,14 @@
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
-                  <img src="~/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                  <img src="~/dist/img/user2-160x160.jpeg" class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class="hidden-xs">Shehryar khan</span>
+                  <span class="hidden-xs">Roby Parapat</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
-                    <img src="~/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="~/dist/img/user2-160x160.jpeg" class="img-circle" alt="User Image">
                     <p>
                       Pabser
                       <small>Admin IB System</small>
@@ -87,7 +87,7 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="~/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <img src="~/dist/img/user2-160x160.jpeg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
               <p>Roby Parapat</p>
@@ -122,7 +122,7 @@
       <!-- Main Footer -->
       <footer class="main-footer">
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2018 <a href="https://codinginfinite.com">CodingInfinite</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2018 <a href="https://codinginfinite.com">IBSystem</a>.</strong> All rights reserved.
       </footer>
     </div>
     <!-- ./wrapper -->
@@ -133,5 +133,26 @@
     <script src="~/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/dist/js/adminlte.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<script>
+$(function() {
+  $('input[name="datetimes"]').daterangepicker({
+    timePicker: true,
+    locale:{
+      "format":"YYYY/MM/DD HH:mm"
+    },
+     singleDatePicker: true,
+     showDropdowns: true,
+     minYear: 1901,
+    maxYear: parseInt(moment().format('YYYY'),10) 
+  },function(start, end, label) {
+   
+    alert("You are " + start.format('YYYY/MM/DD HH:mm') + " and "+end.format('YYYY/MM/DD HH:mm')+" and "+label);
+});
+});
+</script>
     </body>
     </html>

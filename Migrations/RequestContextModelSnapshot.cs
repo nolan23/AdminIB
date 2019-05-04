@@ -16,6 +16,28 @@ namespace AdminIB.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
 
+            modelBuilder.Entity("AdminIB.Models.Event", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<DateTime>("EndDate");
+
+                    b.Property<string>("Keterangan");
+
+                    b.Property<string>("NamaEvent");
+
+                    b.Property<string>("Penyelenggara");
+
+                    b.Property<DateTime>("StartDate");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Event");
+                });
+
             modelBuilder.Entity("AdminIB.Models.Request", b =>
                 {
                     b.Property<int>("Id")

@@ -12,7 +12,7 @@ namespace AdminIB.Models
             using (var context = new RequestContext(
                 serviceProvider.GetRequiredService<DbContextOptions<RequestContext>>()))
             {
-                if (context.Request.Any())
+                if (context.Request.Any() && context.Event.Any())
                 {
                     return;
                 }
@@ -51,12 +51,15 @@ namespace AdminIB.Models
                         Status = "Request"
                     }
                 );
-                if (context.Event.Any())
-                {
-                    return;
-                }
                 context.Event.Add(
-                    null
+                    new Event{
+                        NamaEvent="Test Nama",
+                        StartDate=DateTime.Parse("2019-05-07"),
+                        EndDate=DateTime.Parse("2019-05-07"),
+                        Description="Test Description",
+                        Penyelenggara="Test Penyelenggara",
+                        Keterangan="Test Keterangan"
+                    }
                 );
                 context.SaveChanges();
             }
