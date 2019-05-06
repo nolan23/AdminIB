@@ -61,6 +61,16 @@ namespace AdminIB.Models
                         Keterangan="Test Keterangan"
                     }
                 );
+                context.Account.Add(
+                    new Account{
+                        Name="Admin",
+                        Email="admin@admin.com",
+                        Password="admin123",
+                        Created=DateTime.Now,
+                        Phone="082362738123"
+                    
+                    }
+                );
                 context.SaveChanges();
             }
 

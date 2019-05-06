@@ -15,5 +15,6 @@ namespace AdminIB.Models
         }
         public DbSet<AdminIB.Models.Request> Request { get; set; }
         public DbSet<AdminIB.Models.Event> Event{get;set;}
+        public DbSet<AdminIB.Models.Account> Account{get;set;}
     }
 }

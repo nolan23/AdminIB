@@ -40,3 +40,10 @@
 /home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/Debug/netcoreapp2.2/AdminIB.dll
 /home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/Debug/netcoreapp2.2/AdminIB.pdb
 /home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/Debug/netcoreapp2.2/AdminIB.csproj.CopyComplete
+/home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/Debug/netcoreapp2.2/Razor/Views/Account/Login.g.cshtml.cs
+/home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_LayoutAccount.g.cshtml.cs
+/home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/Debug/netcoreapp2.2/Razor/Views/Account/Create.g.cshtml.cs
+/home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/Debug/netcoreapp2.2/Razor/Views/Account/Delete.g.cshtml.cs
+/home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/Debug/netcoreapp2.2/Razor/Views/Account/Details.g.cshtml.cs
+/home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/Debug/netcoreapp2.2/Razor/Views/Account/Edit.g.cshtml.cs
+/home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/Debug/netcoreapp2.2/Razor/Views/Account/Index.g.cshtml.cs
