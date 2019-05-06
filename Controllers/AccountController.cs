@@ -22,6 +22,8 @@ namespace AdminIB.Controllers
         {
             return View();
         }
+
+        
         [HttpPost]
         public async Task<IActionResult> ValidateLogin(string email, string password)
         {   
@@ -34,6 +36,25 @@ namespace AdminIB.Controllers
                 return RedirectToAction("Login");
             }
             return RedirectToAction("Index","IB", new {area=""});
+        }
+
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(string name, string email,string nomorhp, string password)
+        {
+            Account acc = new Account();
+            acc.Email=email;
+            acc.Name=name;
+            acc.Password=password;
+            acc.Phone=nomorhp;
+            acc.Created = DateTime.Now;
+            _context.Account.Add(acc);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Account
