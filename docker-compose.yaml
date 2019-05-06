@@ -1,0 +1,10 @@
+version: '3.3'  
+   
+services:  
+  api:  
+    build:  
+      context: .  
+      dockerfile: Dockerfile  
+    image: adminib  
+    ports:  
+      - "8080:80"  
