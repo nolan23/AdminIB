@@ -39,6 +39,10 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
+            "Mail.dll": {
+              "target": "Package",
+              "version": "[3.0.19029.1200, )"
+            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",

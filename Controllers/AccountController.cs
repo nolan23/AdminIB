@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AdminIB.Models;
@@ -27,6 +28,7 @@ namespace AdminIB.Controllers
         [HttpPost]
         public async Task<IActionResult> ValidateLogin(string email, string password)
         {   
+            
           
             // int account = _context.Account.FirstOrDefaultAsync(m=>m.Email == user.Email && m.Password == user.Password);
             var account = await _context.Account.FirstOrDefaultAsync(m=>m.Email==email && m.Password==password);
@@ -35,6 +37,7 @@ namespace AdminIB.Controllers
                 
                 return RedirectToAction("Login");
             }
+            HttpContext.Session.SetString("Username",account.Name);
             return RedirectToAction("Index","IB", new {area=""});
         }
 
@@ -60,12 +63,22 @@ namespace AdminIB.Controllers
         // GET: Account
         public async Task<IActionResult> Index()
         {
+             if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
+            ViewBag.Username = HttpContext.Session.GetString("Username");
             return View(await _context.Account.ToListAsync());
         }
 
         // GET: Account/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+             if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
+            ViewBag.Username = HttpContext.Session.GetString("Username");
             if (id == null)
             {
                 return NotFound();
@@ -84,6 +97,11 @@ namespace AdminIB.Controllers
         // GET: Account/Create
         public IActionResult Create()
         {
+             if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
+            ViewBag.Username = HttpContext.Session.GetString("Username");
             return View();
         }
 
@@ -94,6 +112,11 @@ namespace AdminIB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Email,Password,Created,Phone")] Account account)
         {
+             if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
+            ViewBag.Username = HttpContext.Session.GetString("Username");
             if (ModelState.IsValid)
             {
                 _context.Add(account);
@@ -106,6 +129,11 @@ namespace AdminIB.Controllers
         // GET: Account/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+             if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
+            ViewBag.Username = HttpContext.Session.GetString("Username");
             if (id == null)
             {
                 return NotFound();
@@ -126,6 +154,11 @@ namespace AdminIB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Password,Created,Phone")] Account account)
         {
+             if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
+            ViewBag.Username = HttpContext.Session.GetString("Username");
             if (id != account.Id)
             {
                 return NotFound();

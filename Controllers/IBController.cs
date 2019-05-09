@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AdminIB.Models;
@@ -19,13 +20,18 @@ namespace AdminIB.Controllers
         }
 
         // GET: IB
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string q)
         {
+            if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
+            ViewBag.Username = HttpContext.Session.GetString("Username");
             var requests = from m in _context.Request
                            select m;
-            if (!String.IsNullOrEmpty(searchString))
+            if (!String.IsNullOrEmpty(q))
             {
-                requests = requests.Where(s => s.NamaMahasiswa.Contains(searchString));
+                requests = requests.Where(s => s.NamaMahasiswa.Contains(q));
             }
             return View(await requests.ToListAsync());
         }
@@ -33,6 +39,10 @@ namespace AdminIB.Controllers
         // GET: IB/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
             if (id == null)
             {
                 return NotFound();
@@ -51,6 +61,10 @@ namespace AdminIB.Controllers
         // GET: IB/Create
         public IActionResult Create()
         {
+            if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
             return View();
         }
 
@@ -61,6 +75,10 @@ namespace AdminIB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ClientId,NamaMahasiswa,NIMMahasiswa,DepartureDate,ReturnDate,Reason,Destination,Status")] Request request)
         {
+            if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(request);
@@ -73,6 +91,10 @@ namespace AdminIB.Controllers
         // GET: IB/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
             if (id == null)
             {
                 return NotFound();
@@ -93,6 +115,10 @@ namespace AdminIB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,ClientId,NamaMahasiswa,NIMMahasiswa,DepartureDate,ReturnDate,Reason,Destination,Status")] Request request)
         {
+            if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
             if (id != request.Id)
             {
                 return NotFound();
@@ -123,6 +149,10 @@ namespace AdminIB.Controllers
         [HttpGet]
         public async Task<ActionResult> Accept(int id)
         {
+            if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
             var request = await _context.Request.FindAsync(id);
             if (request == null)
             {
@@ -150,6 +180,10 @@ namespace AdminIB.Controllers
         [HttpGet]
         public async Task<ActionResult> Reject(int id)
         {
+            if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
             var request = await _context.Request.FindAsync(id);
             if (request == null)
             {

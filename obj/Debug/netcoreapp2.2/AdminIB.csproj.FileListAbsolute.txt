@@ -47,3 +47,5 @@
 /home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/Debug/netcoreapp2.2/Razor/Views/Account/Details.g.cshtml.cs
 /home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/Debug/netcoreapp2.2/Razor/Views/Account/Edit.g.cshtml.cs
 /home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/Debug/netcoreapp2.2/Razor/Views/Account/Index.g.cshtml.cs
+/home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/Debug/netcoreapp2.2/Razor/Views/Account/Register.g.cshtml.cs
+/home/roby/Documents/Kuliah/Semester_8/PABSER/Projek/AdminIB/obj/Debug/netcoreapp2.2/Razor/Views/Event/Detail.g.cshtml.cs

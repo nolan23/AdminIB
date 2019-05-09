@@ -17,7 +17,7 @@ namespace AdminIB.Models
          [Display(Name="Password")]
         public string Password{get;set;}
        
-       [DataType(DataType.Date)]
+        [DataType(DataType.Date)]
         [Display(Name="Created")]
         public DateTime Created{get;set;}
         

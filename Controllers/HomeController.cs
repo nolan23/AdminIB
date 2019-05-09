@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using AdminIB.Models;
 
 namespace AdminIB.Controllers
@@ -12,6 +13,11 @@ namespace AdminIB.Controllers
     {
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
+            ViewBag.Username = HttpContext.Session.GetString("Username");
             return View();
         }
 

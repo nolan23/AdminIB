@@ -14,11 +14,12 @@
       <!-- Theme style -->
       <link rel="stylesheet" href="~/dist/css/AdminLTE.min.css">
       <link rel="stylesheet" href="~/dist/css/skins/skin-blue.min.css">
-    
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
       <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
+      @RenderSection("Scripts", required: false)
     <div class="wrapper">
       <!-- Main Header -->
       <header class="main-header">
@@ -45,7 +46,7 @@
                   <!-- The user image in the navbar-->
                   <img src="~/dist/img/avatar5.png" class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class="hidden-xs">Roby Parapat</span>
+                  <span class="hidden-xs">@ViewBag.Username</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
@@ -90,7 +91,7 @@
               <img src="~/dist/img/avatar5.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>Roby Parapat</p>
+              <p>@ViewBag.Username</p>
               <!-- Status -->
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -133,9 +134,10 @@
     <script src="~/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/dist/js/adminlte.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <script>
 $(function() {
