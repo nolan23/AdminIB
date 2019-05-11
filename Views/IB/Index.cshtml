@@ -67,6 +67,21 @@
         var d = new Date(date)
         return d.toDateString()
     }
+    function doPost(item,status){
+        console.log("test")
+        item.status=status
+        return jQuery.ajax({
+            type:'PUT',
+            url:"https://localhost:5001/api/request/"+item.clientId,
+            data:JSON.stringify(item),
+            success:function(result){
+                alert(result)
+            }
+        })
+        
+    }
+        var map= new Object()
+
         $(document).ready(function () {  
             $.ajax({  
                 type: "GET",  
@@ -75,19 +90,32 @@
                 dataType: "json",  
                 success: function (data) {  
                     //alert(JSON.stringify(data));                  
-                    
+                    const tBody = $('#table')
+                    $(tBody).empty();
+
                     $.each(data, function (i, item) {  
-                        var rows = "<tr>" +  
-                            "<td" + i+"</td>"+
-                            "<td>" + item.namaMahasiswa + "</td>" +
-                            "<td>" + item.nimMahasiswa + "</td>" +    
-                            "<td>" + convertDate(item.departureDate) + "</td>" +  
-                             "<td>" + convertDate(item.returnDate) + "</td>" +
-                             "<td>" + item.reason + "</td>" +
-                             "<td>" + item.destination + "</td>" +  
-                            "<td>" + item.status + "</td>" +  
-                            "</tr>";  
-                        $('#table').append(rows);  
+                        map[i]=item.clientId
+                        const tr=$("<tr></tr>")
+                            .append($("<td></td>").text(i+1))
+                            .append($("<td></td>").text(item.namaMahasiswa))
+                            .append($("<td></td>").text(item.nimMahasiswa))
+                            .append($("<td></td>").text(convertDate(item.departureDate)))
+                            .append($("<td></td>").text(convertDate(item.returnDate)))
+                            .append($("<td></td>").text(item.reason))
+                            .append($("<td></td>").text(item.destination))
+                            .append($("<td></td>").text(item.status))
+                            .append(
+                                $("<td></td>").append(
+                                    $("<button>Setujui</button>").on("click", function(){
+                                        doPost(item,"setuju")
+                                    })
+                                ).append(
+                                        $("<button>Tolak</button>").on("click", function(){
+                                        doPost(item,"tolak")
+                                        })
+                                    )
+                            );
+                            tr.appendTo(tBody)  
                     }); //End of foreach Loop   
                     console.log(data);  
                 }, //End of AJAX Success function  
@@ -100,7 +128,8 @@
                 } //End of AJAX error function  
       
             });         
-        });  
+        });
+
     </script>  
 }
 

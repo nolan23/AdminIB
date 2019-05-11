@@ -37,12 +37,26 @@ namespace AdminIB.Controllers
             return request;
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutRequest(long id, Request item)
+        {
+            if (id != item.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(item).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
         [HttpPost]
         public async Task<ActionResult<Request>> PostRequest(Request request)
         {
             _context.Request.Add(request);
             await _context.SaveChangesAsync();
-            
+
             return CreatedAtAction(nameof(GetRequest), new { id = request.Id }, request);
         }
 
